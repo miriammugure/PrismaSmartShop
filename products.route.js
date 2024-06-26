@@ -57,41 +57,41 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-// router.post("/", async (req, res) => {
-//   const {
-//     productthumbnail,
-//     producttitle,
-//     productcost,
-//     productdescription,
-//     onoffer
-//   } = req.body;
-//   if (!productthumbnail || !producttitle || !productcost || !productdescription || typeof onoffer === 'undefined') {
-//     return res.status(400).json({ success: false, message: "All fields are required" });
-//   }
+router.post("/", async (req, res) => {
+  const {
+    productthumbnail,
+    producttitle,
+    productcost,
+    productdescription,
+    onoffer
+  } = req.body;
+  if (!productthumbnail || !producttitle || !productcost || !productdescription || typeof onoffer === 'undefined') {
+    return res.status(400).json({ success: false, message: "All fields are required" });
+  }
 
-//   try {
-//     const newProduct = await prisma.products.create({
-//       data: {
-//         productthumbnail,
-//         producttitle,
-//         productcost,
-//         productdescription,
-//         onoffer
-//       },
-//       select: {
-//         id: true,
-//         productthumbnail: true,
-//         producttitle: true,
-//         productcost: true,
-//         productdescription: true,
-//         onoffer: true
-//       }
-//     });
-//     res.status(200).json({message:"Product created successfully",newProduct});
-//   } catch (error) {
-//     res.status(500).json({ success: false, message: error.message });
-//   }
-// });
+  try {
+    const newProduct = await prisma.products.create({
+      data: {
+        productthumbnail,
+        producttitle,
+        productcost,
+        productdescription,
+        onoffer
+      },
+      select: {
+        id: true,
+        productthumbnail: true,
+        producttitle: true,
+        productcost: true,
+        productdescription: true,
+        onoffer: true
+      }
+    });
+    res.status(200).json({message:"Product created successfully",newProduct});
+  } catch (error) {
+    res.status(500).json("There was an error on the server side");
+  }
+});
 
 // router.patch("/:id", async (req, res) => {
 
