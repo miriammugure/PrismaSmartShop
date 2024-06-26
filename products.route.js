@@ -93,61 +93,61 @@ router.post("/", async (req, res) => {
   }
 });
 
-// router.patch("/:id", async (req, res) => {
+router.patch("/:id", async (req, res) => {
 
-//     const id = req.params.id;
-//     const {
-//       productthumbnail,
-//       producttitle,
-//       productcost,
-//       productdescription,
-//       onoffer
-//     } = req.body;
+    const id = req.params.id;
+    const {
+      productthumbnail,
+      producttitle,
+      productcost,
+      productdescription,
+      onoffer
+    } = req.body;
  
   
-//     try {
-//       let updateProduct;
-//       if(productthumbnail){(
-//         updateProduct=await prisma.products.update({
-//           where:{id},
-//           data:{productthumbnail:productthumbnail}
-//         })
-//       )
-//       }
-//       if(producttitle){(
-//         updateProduct=await prisma.products.update({
-//           where:{id},
-//           data:{producttitle:producttitle}
-//         })
-//       )
-//       }
-//       if(productcost){(
-//         updateProduct=await prisma.products.update({
-//           where:{id},
-//           data:{productcost:productcost}
-//         })
-//       )
-//       }
-//       if(productdescription){(
-//         updateProduct=await prisma.products.update({
-//           where:{id},
-//           data:{productdescription:productdescription}
-//         })
-//       )
-//       }
+    try {
+      let updateProduct;
+      if(productthumbnail){(
+        updateProduct=await prisma.products.update({
+          where:{id},
+          data:{productthumbnail:productthumbnail}
+        })
+      )
+      }
+      if(producttitle){(
+        updateProduct=await prisma.products.update({
+          where:{id},
+          data:{producttitle:producttitle}
+        })
+      )
+      }
+      if(productcost){(
+        updateProduct=await prisma.products.update({
+          where:{id},
+          data:{productcost:productcost}
+        })
+      )
+      }
+      if(productdescription){(
+        updateProduct=await prisma.products.update({
+          where:{id},
+          data:{productdescription:productdescription}
+        })
+      )
+      }
 
-//       if(onoffer){(
-//         updateProduct=await prisma.products.update({
-//           where:{id},
-//           data:{onoffer:onoffer}
-//         })
-//       )
-//       }
+      if(onoffer){(
+        updateProduct=await prisma.products.update({
+          where:{id},
+          data:{onoffer:onoffer}
+        })
+      )
+      }
    
-//       res.status(200).json({message:"Product updated successfully",updateProduct});
-//     } catch (error) {
-//       res.status(500).json({ success: false, message: error.message });
-//     }
-//   });
+      res.status(200).json({message:"Product updated successfully",updateProduct});
+    } catch (error) {
+      res.status(500).json("There was an error on the server side");
+    }
+  });
   
 export default router;
