@@ -13,29 +13,29 @@ router.get("/", async (req, res) => {
   }
 });
 
-// router.get("/:id", async (req, res) => {
-//   const id = req.params.id;
-//   try {
-//     const product = await prisma.products.findFirst({
-//       where: { id },
-//       select: {
-//         id: true,
-//         productthumbnail: true,
-//         producttitle: true,
-//         productcost: true,
-//         productdescription: true,
-//         onoffer: true
-//       }
-//     });
-//     if (!product) {
-//         return res.status(404).json("No product found" );
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const product = await prisma.products.findFirst({
+      where: { id },
+      select: {
+        id: true,
+        productthumbnail: true,
+        producttitle: true,
+        productcost: true,
+        productdescription: true,
+        onoffer: true
+      }
+    });
+    if (!product) {
+        return res.status(404).json("No product found" );
 
-//     } res.status(200).json( product);
+    } res.status(200).json( product);
     
-//   } catch (error) {
-//     res.status(500).json("There was an error on the server side");
-//   }
-// });
+  } catch (error) {
+    res.status(500).json("There was an error on the server side");
+  }
+});
 
 // router.delete("/:id", async (req, res) => {
 //   const id = req.params.id;
