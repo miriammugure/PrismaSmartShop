@@ -37,25 +37,25 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// router.delete("/:id", async (req, res) => {
-//   const id = req.params.id;
-//   try {
-//     const product = await prisma.products.delete({
-//       where: { id },
-//       select: {
-//         id: true,
-//         productthumbnail: true,
-//         producttitle: true,
-//         productcost: true,
-//         productdescription: true,
-//         onoffer: true
-//       }
-//     });
-//     res.status(200).json( { message:"Product deleted successfully",product});
-//   } catch (error) {
-//     res.status(500).json("There was an error on the server side");
-//   }
-// });
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const product = await prisma.products.delete({
+      where: { id },
+      select: {
+        id: true,
+        productthumbnail: true,
+        producttitle: true,
+        productcost: true,
+        productdescription: true,
+        onoffer: true
+      }
+    });
+    res.status(200).json( { message:"Product deleted successfully",product});
+  } catch (error) {
+    res.status(500).json("There was an error on the server side");
+  }
+});
 
 // router.post("/", async (req, res) => {
 //   const {
